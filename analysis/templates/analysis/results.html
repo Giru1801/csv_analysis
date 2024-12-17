@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Analysis Results</title>
+</head>
+<body style="background-color:powderblue;">
+    <h1 style="text-align: center; border: 3px solid green">Data Analysis Results</h1>
+
+    <h2>Head of Data</h2>
+    {{ analysis_results.head|safe }}
+
+    <h2>Summary Statistics</h2>
+    {{ analysis_results.describe|safe }}
+
+    <h2>Missing Values</h2>
+    {{ analysis_results.missing|safe }}
+
+    <h2>Histograms</h2>
+    {% for plot in plots %}
+        <img src="{{ plot }}" alt="Plot" style="width:100%; height:500px; margin:20px;">
+    {% endfor %}
+</body>
+</html>
